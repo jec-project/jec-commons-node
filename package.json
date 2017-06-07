@@ -1,6 +1,6 @@
 {
   "name": "jec-commons-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JEC Commons for Node.js - Provides developers reusable components used by JEC implementations built over Node.js.",
   "main": "lib/com/jec/commons/node/index",
   "types": "types/jec-commons-node.d.ts",
@@ -27,6 +27,11 @@
     "url": "https://github.com/pechemann/jec-commons-node/issues"
   },
   "homepage": "https://github.com/pechemann/jec-commons-node#readme",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "uuid": "^3.0.1",
+    "jec-commons": "^1.1.1"
+  },
   "devDependencies": {
     "@types/mocha": "^2.2.41",
     "@types/uuid": "^2.0.29",
@@ -43,11 +48,7 @@
     "typescript": "^2.3.2",
     "typings": "^2.1.1"
   },
-  "dependencies": {
-    "moment": "^2.18.1",
-    "uuid": "^3.0.1"
-  },
   "peerDependencies": {
-    "jec-commons": "^1.0.4"
+    "jec-commons": "^1.1.1"
   }
 }

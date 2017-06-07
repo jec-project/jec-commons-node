@@ -14,4 +14,5 @@
 
 //--> com/jec/commons/node/files/utils
 export {FilePropertiesBuilder} from "./files/utils/FilePropertiesBuilder";
+export {FileStatsProxy} from "./files/utils/FileStatsProxy";
 export {WalkPathUtil} from "./files/utils/WalkPathUtil";
