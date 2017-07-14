@@ -1,6 +1,6 @@
 {
   "name": "jec-commons-node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JEC Commons for Node.js - Provides developers reusable components used by JEC implementations built over Node.js.",
   "main": "lib/com/jec/commons/node/index",
   "types": "types/jec-commons-node.d.ts",
@@ -49,6 +49,6 @@
     "typings": "^2.1.1"
   },
   "peerDependencies": {
-    "jec-commons": "^1.1.1"
+    "jec-commons": "^1.1.2"
   }
 }

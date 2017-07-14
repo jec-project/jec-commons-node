@@ -1,5 +1,15 @@
 # JEC Node.js Commons Project: Update Release Notes
 
+<a name="jec-commons-node-1.0.2"></a>
+## **1.0.2** (2017-07-14)
+
+### Bug Fixes
+
+### Features
+
+- **Gruntfile**: adding support for types generation
+- Dependencies upgrade
+
 <a name="jec-commons-node-1.0.1"></a>
 ## **1.0.1** (2017-06-05)
 
@@ -8,7 +18,6 @@
 ### Features
 
 - **FileStatsProxy:** an utility class for the proxifying the `fs.Stats` API
-
 - Dependencies upgrade
 
 <a name="jec-commons-node-1.0.0"></a>
