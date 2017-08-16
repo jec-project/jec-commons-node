@@ -1,5 +1,17 @@
 # JEC Node.js Commons Project: Update Release Notes
 
+<a name="jec-commons-node-1.0.3"></a>
+## **1.0.3** (2017-08-16)
+
+### Bug Fixes
+
+### Features
+
+- **build**: adding build script to npm install process for GlassCat instal optimisation
+- **index**: refactoring the module index
+- Dependencies upgrade
+- Removing unused dependencies
+
 <a name="jec-commons-node-1.0.2"></a>
 ## **1.0.2** (2017-07-14)
 
