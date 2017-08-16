@@ -13,6 +13,6 @@
  */
 
 //--> com/jec/commons/node/files/utils
-export {FilePropertiesBuilder} from "./files/utils/FilePropertiesBuilder";
-export {FileStatsProxy} from "./files/utils/FileStatsProxy";
-export {WalkPathUtil} from "./files/utils/WalkPathUtil";
+export {FilePropertiesBuilder} from "./node/files/utils/FilePropertiesBuilder";
+export {FileStatsProxy} from "./node/files/utils/FileStatsProxy";
+export {WalkPathUtil} from "./node/files/utils/WalkPathUtil";
