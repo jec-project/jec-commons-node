@@ -1,5 +1,14 @@
 # JEC Node.js Commons Project: Update Release Notes
 
+<a name="jec-commons-node-1.0.4"></a>
+## **1.0.4** (2017-08-20)
+
+### Bug Fixes
+
+### Features
+
+- Fixing peer dependencies for GlassCat alpha releases integration
+
 <a name="jec-commons-node-1.0.3"></a>
 ## **1.0.3** (2017-08-16)
 
