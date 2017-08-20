@@ -1,12 +1,11 @@
 {
   "name": "jec-commons-node",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "JEC Commons for Node.js - Provides developers reusable components used by JEC implementations built over Node.js.",
-  "main": "lib/com/jec/commons/jec-commons-node-index",
+  "main": "dist/com/jec/commons/jec-commons-node-index",
   "types": "types/jec-commons-node.d.ts",
   "scripts": {
-    "test": "mocha --recursive",
-    "postinstall": "grunt build"
+    "test": "mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -29,24 +28,7 @@
   },
   "homepage": "https://github.com/pechemann/jec-commons-node#readme",
   "dependencies": {
-    "jec-commons": "^1.1.5",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-mocha-test": "^0.13.2",
-    "grunt-ts": "^6.0.0-beta.16",
-    "grunt-typedoc": "^0.2.4",
-    "typescript": "^2.5.1"
-  },
-  "peerDependencies": {
-    "jec-commons": "^1.1.5",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-mocha-test": "^0.13.2",
-    "grunt-ts": "^6.0.0-beta.16",
-    "grunt-typedoc": "^0.2.4",
-    "typescript": "^2.5.1"
+    "jec-commons": "^1.1.6"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.41",
@@ -54,6 +36,13 @@
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
     "mocha": "^3.3.0",
-    "typedoc": "^0.8.0"
+    "typedoc": "^0.8.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "grunt-ts": "^6.0.0-beta.16",
+    "grunt-typedoc": "^0.2.4",
+    "typescript": "^2.5.1"
   }
 }
