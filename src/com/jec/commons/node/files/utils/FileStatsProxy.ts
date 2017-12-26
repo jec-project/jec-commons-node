@@ -65,98 +65,98 @@ export class FileStatsProxy implements FileStats {
    * @inheritDoc
    */
   public get dev():number {
-    return  this._fsStats.dev;
+    return this._fsStats.dev;
   }
 
   /**
    * @inheritDoc
    */
   public get ino():number {
-    return  this._fsStats.ino;
+    return this._fsStats.ino;
   }
 
   /**
    * @inheritDoc
    */
   public get mode():number {
-    return  this._fsStats.mode;
+    return this._fsStats.mode;
   }
   
   /**
    * @inheritDoc
    */
   public get nlink():number {
-    return  this._fsStats.nlink;
+    return this._fsStats.nlink;
   }
   
   /**
    * @inheritDoc
    */
   public get uid():number {
-    return  this._fsStats.uid;
+    return this._fsStats.uid;
   }
 
   /**
    * @inheritDoc
    */
   public get gid():number {
-    return  this._fsStats.gid;
+    return this._fsStats.gid;
   }
  
   /**
    * @inheritDoc
    */
   public get rdev():number {
-    return  this._fsStats.rdev;
+    return this._fsStats.rdev;
   }
   
   /**
    * @inheritDoc
    */
   public get size():number {
-    return  this._fsStats.size;
+    return this._fsStats.size;
   }
   
   /**
    * @inheritDoc
    */
   public get blksize():number {
-    return  this._fsStats.blksize;
+    return this._fsStats.blksize;
   }
  
   /**
    * @inheritDoc
    */
   public get blocks():number {
-    return  this._fsStats.blocks;
+    return this._fsStats.blocks;
   }
  
   /**
    * @inheritDoc
    */
   public get atime():Date {
-    return  this._fsStats.atime;
+    return this._fsStats.atime;
   }
   
   /**
    * @inheritDoc
    */
   public get mtime():Date {
-    return  this._fsStats.mtime;
+    return this._fsStats.mtime;
   }
  
   /**
    * @inheritDoc
    */
   public get ctime():Date {
-    return  this._fsStats.ctime;
+    return this._fsStats.ctime;
   }
  
   /**
    * @inheritDoc
    */
   public get birthtime():Date {
-    return  this._fsStats.birthtime;
+    return this._fsStats.birthtime;
   }
 
   //////////////////////////////////////////////////////////////////////////////

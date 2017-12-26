@@ -1,5 +1,14 @@
 # JEC Node.js Commons Project: Update Release Notes
 
+<a name="jec-commons-node-1.0.7"></a>
+## **1.0.7** (2017-12-26)
+
+### Bug Fixes
+
+### Features
+
+- Dependencies upgrade
+
 <a name="jec-commons-node-1.0.6"></a>
 ## **1.0.6** (2017-09-06)
 
