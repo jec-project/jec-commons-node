@@ -5,7 +5,7 @@
   "main": "dist/com/jec/commons/jec-commons-node-index",
   "types": "types/jec-commons-node.d.ts",
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha juta/tiger/run-unit-tests"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,8 @@
     "@types/uuid": "^2.0.29",
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
+    "jec-juta": "^1.1.7",
+    "jec-tiger": "^1.1.8",
     "mocha": "^3.3.0",
     "typedoc": "^0.8.0",
     "grunt": "^1.0.1",

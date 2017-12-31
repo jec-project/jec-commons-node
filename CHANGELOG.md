@@ -8,6 +8,7 @@
 ### Features
 
 - Dependencies upgrade
+- Adding JUTA implementation for unit testing instead of Mocha.js
 
 <a name="jec-commons-node-1.0.6"></a>
 ## **1.0.6** (2017-09-06)

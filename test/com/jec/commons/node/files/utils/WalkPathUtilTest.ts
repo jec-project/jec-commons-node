@@ -14,53 +14,95 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import "mocha";
-import {expect} from "chai";
-import {PathStats, FileProperties} from "jec-commons";
-
-// Class to test:
-import {WalkPathUtil} from "../../../../../../../src/com/jec/commons/node/files/utils/WalkPathUtil";
+import { TestSuite, Test, Before, AfterAll, BeforeAll, TestSorters } from "jec-juta";
+import { expect } from "chai";
+import { PathStats, FileProperties } from "jec-commons";
+import { WalkPathUtil } from "../../../../../../../src/com/jec/commons/node/files/utils/WalkPathUtil";
 
 // Utilities:
 import * as utils from "../../../../../../../utils/test-utils/utilities/WalkPathUtilTestUtils";
 
-// Test:
-describe("WalkPathUtil", ()=> {
+@TestSuite({
+  description: "Test the WalkPathUtilTest class methods",
+  testOrder: TestSorters.ORDER_ASCENDING
+})
+export class WalkPathUtilTest {
 
-  describe("#walkSync()", ()=> {
+  private pathUtil:WalkPathUtil = null;
+  private processedFiles:number = 0;
+  private stats:PathStats = null;
 
-    let pathUtil:WalkPathUtil = new WalkPathUtil();
-    let processedFiles:number = 0;
-    let stats:PathStats = null;
+  @BeforeAll()
+  public initTest():void {
+    this.pathUtil = new WalkPathUtil();
+    this.processedFiles = 0;
+  }
 
-    it("#walkSync() should return the same instance of PathStats as passed as the 'pathStats' parameter", function() {
-      stats = pathUtil.walkSync(utils.VALID_EMPTY_PATH, (file:FileProperties)=> {
-                processedFiles++;
-              }, utils.PATH_STATS);
-      expect(stats).to.equal(utils.PATH_STATS);
-    });
+  @AfterAll()
+  public resetTest():void {
+    this.pathUtil = null;
+    this.processedFiles = 0;
+    this.stats = null;
+  }
 
-    it("#walkSync() should return an instance of PathStats", function() {
-      stats = pathUtil.walkSync(utils.VALID_PATH, (file:FileProperties)=> {
-        processedFiles++;
-      });
-      expect(stats).to.be.an.instanceOf(PathStats);
-    });
-    
-    it("#PathStats.getPath() should return the specified path", function() {
-      expect(stats.getPath()).to.equal(utils.VALID_PATH);
-    });
+  @Test({
+    description: "should return the same instance of PathStats as passed as the 'pathStats' parameter",
+    order: 0
+  })
+  public walkSyncPathStatsParameterTest():void {
+    this.stats = this.pathUtil.walkSync(
+                    utils.VALID_EMPTY_PATH,
+                    (file:FileProperties)=> {
+                      this.processedFiles++;
+                      },
+                    utils.PATH_STATS
+                  );
+    expect(this.stats).to.equal(utils.PATH_STATS);
+  }
 
-    it("#PathStats.directoriesNum should return the right number of directories in the specified path", function() {
-      expect(stats.directoriesNum).to.equal(utils.NUM_DIRS);
-    });
+  @Test({
+    description: "should return an instance of PathStats",
+    order: 1
+  })
+  public pathStatsTypeTest():void {
+    this.stats = this.pathUtil.walkSync(
+                    utils.VALID_PATH,
+                    (file:FileProperties)=> {
+                      this.processedFiles++;
+                    }
+                  );
+    expect(this.stats).to.be.an.instanceOf(PathStats);
+  }
 
-    it("#PathStats.filesNum should return the right number of files in the specified path", function() {
-      expect(stats.filesNum).to.equal(utils.NUM_FILES);
-    });
+  @Test({
+    description: "PathStats.getPath() should return the specified path",
+    order: 2
+  })
+  public getPathTest():void {
+    expect(this.stats.getPath()).to.equal(utils.VALID_PATH);
+  }
 
-    it("#PathStats.processedFilesNum should return the right number of processed files in the specified path", function() {
-      expect(processedFiles).to.equal(stats.processedFilesNum);
-    });
-  });
-});
+  @Test({
+    description: "PathStats.directoriesNum should return the right number of directories in the specified path",
+    order: 3
+  })
+  public directoriesNumTest():void {
+    expect(this.stats.directoriesNum).to.equal(utils.NUM_DIRS);
+  }
+
+  @Test({
+    description: "PathStats.filesNum should return the right number of files in the specified path",
+    order: 4
+  })
+  public filesNumTest():void {
+    expect(this.stats.filesNum).to.equal(utils.NUM_FILES);
+  }
+
+  @Test({
+    description: "PathStats.processedFilesNum should return the right number of processed files in the specified path",
+    order: 5
+  })
+  public processedFilesNumTest():void {
+    expect(this.processedFiles).to.equal(this.stats.processedFilesNum);
+  }
+};

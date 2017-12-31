@@ -14,59 +14,88 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import "mocha";
-import {expect} from "chai";
-import {JecStringsEnum, FileProperties, DecoratorProperties, BasicDecoratorProperties} from "jec-commons";
+import { TestSuite, Test, Before, After } from "jec-juta";
+import { expect } from "chai";
+import { JecStringsEnum, FileProperties, DecoratorProperties,
+         BasicDecoratorProperties } from "jec-commons";
+import { FilePropertiesBuilder } from "../../../../../../../src/com/jec/commons/node/files/utils/FilePropertiesBuilder";
 
-// Class to test:
-import {FilePropertiesBuilder} from "../../../../../../../src/com/jec/commons/node/files/utils/FilePropertiesBuilder";
-
-// Utilities:
 import * as utils from "../../../../../../../utils/test-utils/utilities/FilePropertiesBuilderTestUtils";
 
-// Test:
-describe("FilePropertiesBuilder", ()=> {
+@TestSuite({
+  description: "Test the FilePropertiesBuilder class methods"
+})
+export class FilePropertiesBuilderTest {
+  
+  private builder:FilePropertiesBuilder = null;
+  private properties:FileProperties = null;
+  private decoratorProps:DecoratorProperties[] = null;
+  
+  @Before()
+  public initTest():void {
+    this.builder = new FilePropertiesBuilder();
+    this.properties =
+                    this.builder.build(utils.FILE_NAME, utils.FILE_PATH, null);
+    this.decoratorProps = this.properties.decorators;
+  }
 
-  describe("#build()", ()=> {
-    
-    let builder:FilePropertiesBuilder = new FilePropertiesBuilder();
-    let properties:FileProperties = builder.build(utils.FILE_NAME, utils.FILE_PATH, null);
-    let decoratorProps:DecoratorProperties[] = properties.decorators;
-    
-    it("should return a FileProperties object with the 'name' property built from the specified file name", function() {
-      expect(properties.name).to.equal(utils.PROPERTIES_NAME);
-    });
+  @After()
+  public resetTest():void {
+    this.builder = null;
+    this.properties = null;
+    this.decoratorProps = null;
+  }
 
-    it("should return a FileProperties object with the 'path' property built from the specified file path", function() {
-      expect(properties.path).to.equal(utils.PROPERTIES_PATH);
-    });
+  @Test({
+    description:"should return a FileProperties object with the 'name' property built from the specified file name"
+  })
+  public nameTest():void {
+    expect(this.properties.name).to.equal(utils.PROPERTIES_NAME);
+  }
+  
+  @Test({
+    description:"should return a FileProperties object with the 'path' property built from the specified file path"
+  })
+  public pathTest():void {
+    expect(this.properties.path).to.equal(utils.PROPERTIES_PATH);
+  }
+  
+  @Test({
+    description:"should return a FileProperties object with the 'extension' property equal to JecStringsEnum.JS_EXTENSION"
+  })
+  public extensionTest():void {
+    expect(this.properties.extension).to.equal(JecStringsEnum.JS_EXTENSION);
+  }
+  
+  @Test({
+    description:"should return a FileProperties object with the 'stats' property initialized to 'null'"
+  })
+  public statsTest():void {
+    expect(this.properties.stats).to.be.null;
+  }
+  
+  @Test({
+    description:"should return a FileProperties object with the 'content' property which is not 'null'"
+  })
+  public contentTest():void {
+    expect(this.properties.content).not.to.be.null;
+  }
 
-    it("should return a FileProperties object with the 'extension' property equal to JecStringsEnum.JS_EXTENSION", function() {
-      expect(properties.extension).to.equal(JecStringsEnum.JS_EXTENSION);
-    });
-
-    it("should return a FileProperties object with the 'stats' property initialized to null", function() {
-      expect(properties.stats).to.be.null;
-    });
-
-    it("should return a FileProperties object with the 'content' property initialized to null", function() {
-      expect(properties.content).not.to.be.null;
-    });
-
-    /*it("should return a FileProperties object with the 'content' property equal to specified file", function() {
-      expect(properties.content).to.equal(FILE);
-    });*/
-
-    it("should return a FileProperties object with the 'decorators' property which has a length of 1", function() {
-      expect(properties.decorators).to.have.lengthOf(1);
-    });
-
-    it("should contain a DecoratorProperties object built from the specified parameters", function() {
-      let decoratorProp:DecoratorProperties = properties.decorators[0];
-      expect(decoratorProp).to.be.instanceOf(BasicDecoratorProperties);
-      expect(decoratorProp).to.have.property("name", utils.DECORATOR_NAME);
-      expect(decoratorProp).to.have.property("classPath", utils.DECORATOR_CLASS_PATH);
-      expect(decoratorProp).to.have.property("value", utils.DECORATOR_VALUE);
-    });
-  });
-});
+  @Test({
+    description:"should return a FileProperties object with the 'decorators' property which has a length of '1'"
+  })
+  public decoratorsTest():void {
+    expect(this.properties.decorators).to.have.lengthOf(1);
+  }
+  
+  @Test({
+    description:"should contain a DecoratorProperties object built from the specified parameters"
+  })
+  public buildTest():void {
+    let decoratorProp:DecoratorProperties = this. properties.decorators[0];
+    expect(decoratorProp).to.be.instanceOf(BasicDecoratorProperties);
+    expect(decoratorProp).to.have.property("name", utils.DECORATOR_NAME);
+    expect(decoratorProp).to.have.property("classPath", utils.DECORATOR_CLASS_PATH);
+    expect(decoratorProp).to.have.property("value", utils.DECORATOR_VALUE);
+  }
+};
