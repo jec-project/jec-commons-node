@@ -9,6 +9,7 @@
 
 - Dependencies upgrade
 - Adding JUTA implementation for unit testing instead of Mocha.js
+- **LocaleManager**: the `LocaleManager` class has been removed from the GlassCat core module and is now a part of the JEC commons node module
 
 <a name="jec-commons-node-1.0.6"></a>
 ## **1.0.6** (2017-09-06)

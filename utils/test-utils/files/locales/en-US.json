@@ -1,0 +1,9 @@
+{
+	"hello": {
+		"world": "Hello World!",
+		"name": "Hello %s!"
+	},
+	"errors": {
+		"singleton": "You cannot create a %s instance; use getInstance() instead."
+	}
+}

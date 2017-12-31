@@ -16,3 +16,5 @@
 export {FilePropertiesBuilder} from "./node/files/utils/FilePropertiesBuilder";
 export {FileStatsProxy} from "./node/files/utils/FileStatsProxy";
 export {WalkPathUtil} from "./node/files/utils/WalkPathUtil";
+//--> com/jec/commons/node/i18n
+export {LocaleManager} from "./node/i18n/LocaleManager";
