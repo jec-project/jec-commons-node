@@ -18,3 +18,4 @@ export {FileStatsProxy} from "./node/files/utils/FileStatsProxy";
 export {WalkPathUtil} from "./node/files/utils/WalkPathUtil";
 //--> com/jec/commons/node/i18n
 export {LocaleManager} from "./node/i18n/LocaleManager";
+export {LocaleManagerBase} from "./node/i18n/LocaleManagerBase";

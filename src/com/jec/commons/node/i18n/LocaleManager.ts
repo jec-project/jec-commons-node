@@ -14,84 +14,12 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import * as i18n from "i18n";
-import {SingletonError} from "jec-commons";
-
 /**
- * The <code>LocaleManager</code> singleton allows to manage the  
- * internationalization context for a JEC container built over Node.js.
+ * The <code>LocaleManager</code> interface defines the basic set of APIs you
+ * must implement to manage the internationalization context for a JEC container
+ * built over Node.js.
  */
-export class LocaleManager {
-
-  //////////////////////////////////////////////////////////////////////////////
-  // Constructor function
-  //////////////////////////////////////////////////////////////////////////////
-
-  /**
-   * Creates a new <code>LocaleManager</code> instance.
-   */
-  constructor() {
-    let msg:string = null;
-    let manager:LocaleManager = null;
-    if(LocaleManager._locked || LocaleManager.INSTANCE) {
-      manager = LocaleManager.getInstance();
-      if(manager.isInitialized()) {
-        msg = manager.get("errors.singleton", "LocaleManager");
-      } else {
-        msg = "You cannot create a LocaleManager instance; use getInstance() instead."
-      }
-      throw new SingletonError(msg);
-    }
-    LocaleManager._locked = true;
-  }
-
-  //////////////////////////////////////////////////////////////////////////////
-  // Singleton managment
-  //////////////////////////////////////////////////////////////////////////////
-
-  /**
-   * Prevents <code>LocaleManager</code> illegal instanciations.
-   */
-  private static _locked:boolean = true;
-
-  /**
-   * The <code>LocaleManager</code> singleton instance reference.
-   */
-  private static INSTANCE:LocaleManager = null;
-
-  /**
-   * Indicates whether the <code>LocaleManager</code> singleton has been
-   * initialized (<code>true</code>), or not (<code>false</code>).
-   */
-  private _initialized:boolean = false;
-
-  /**
-   * Returns a reference to the <code>LocaleManager</code> singleton.
-   *
-   * @return {LocaleManager} a reference to the <code>LocaleManager</code>
-   *                         singleton.
-   */
-  public static getInstance():LocaleManager {
-    if(LocaleManager.INSTANCE === null) {
-      LocaleManager._locked = false;
-      LocaleManager.INSTANCE = new LocaleManager();
-    }
-    return LocaleManager.INSTANCE;
-  }
-
-  //////////////////////////////////////////////////////////////////////////////
-  // Private properties
-  //////////////////////////////////////////////////////////////////////////////
-
-  /**
-   * The directory location for all locales of a JEC container.
-   */
-  private _directory:string = "./public/locales";
-
-  //////////////////////////////////////////////////////////////////////////////
-  // Public methods
-  //////////////////////////////////////////////////////////////////////////////
-
+export interface LocaleManager {
   /**
    * Initializes the singleton.
    *
@@ -99,23 +27,7 @@ export class LocaleManager {
    * @param {any} options an optional object used to override locale settings
    *                      for the JEC container.
    */
-  public init(locale:string, options?:any):void {
-    if(locale) {
-      let config:any = {
-        locales: [locale],
-        defaultLocale: locale,
-        directory: this._directory,
-        objectNotation: true
-      };
-      if(options) {
-        config = Object.assign({}, config, options);
-        this._directory = config.directory;
-      }
-      i18n.configure(config);
-      this._initialized = true;
-    }
-    else this._initialized = false;
-  }
+  init(locale:string, options?:any):void;
 
   /**
    * Returns a boolean value that indicates whether the singleton is initialized 
@@ -124,9 +36,7 @@ export class LocaleManager {
    * @return {boolean} <code>true</code> whether the singleton is initialized;
    *                   <code>false</code> otherwise.
    */
-  public isInitialized():boolean {
-    return this._initialized;
-  }
+  isInitialized():boolean;
 
   /**
    * Returns the current locale of a JEC container, or <code>null</code> wheter
@@ -135,9 +45,7 @@ export class LocaleManager {
    * @return {string} the current locale of a JEC container, or
    *                  <code>null</code>.
    */
-  public getLocale():string {
-    return this._initialized ? i18n.getLocale() : null;
-  }
+  getLocale():string;
 
   /**
    * Returns the directory location for all locales of a JEC container, or
@@ -146,9 +54,7 @@ export class LocaleManager {
    * @return {string} the directory location for all locales of a JEC container, 
    *                  or <code>null</code>.
    */
-  public getDirectory():string {
-    return this._directory;
-  }
+  getDirectory():string;
 
   /**
    * Returns translated parsed and substituted string from the specified
@@ -159,9 +65,5 @@ export class LocaleManager {
    *                           translation.
    * @return {string} a single phrase translated into the current locale.
    */
-  public get(key:string, ...replace:string[]):string {
-    let result:string = null;
-    if(this._initialized) result = i18n.__(key, ...replace);
-    return result;
-  }
+  get(key:string, ...replace:string[]):string;
 }

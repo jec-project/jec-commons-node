@@ -15,7 +15,7 @@
 //   limitations under the License.
 
 /*!
- * This module constains utilities used by the LocaleManagerTest test suite.
+ * This module constains utilities used by the LocaleManagerBaseTest test suite.
  */
 
 // Utilities:

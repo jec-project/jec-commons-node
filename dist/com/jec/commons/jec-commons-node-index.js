@@ -6,5 +6,5 @@ var FileStatsProxy_1 = require("./node/files/utils/FileStatsProxy");
 exports.FileStatsProxy = FileStatsProxy_1.FileStatsProxy;
 var WalkPathUtil_1 = require("./node/files/utils/WalkPathUtil");
 exports.WalkPathUtil = WalkPathUtil_1.WalkPathUtil;
-var LocaleManager_1 = require("./node/i18n/LocaleManager");
-exports.LocaleManager = LocaleManager_1.LocaleManager;
+var LocaleManagerBase_1 = require("./node/i18n/LocaleManagerBase");
+exports.LocaleManagerBase = LocaleManagerBase_1.LocaleManagerBase;
