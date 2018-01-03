@@ -1,0 +1,8 @@
+{
+  "jstring": "string",
+  "jnumber": 30,
+  "jobject": { "foo": "bar" },
+  "jarray": [0,1],
+  "jboolean": false,
+  "jnull": null
+}

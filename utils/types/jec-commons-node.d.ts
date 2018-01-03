@@ -8,7 +8,8 @@
 declare module "jec-commons-node" {
 
 /// <reference types="node" />
-import { FileProperties, FileStats, PathStats } from "jec-commons";
+import { FileProperties, FileStats, PathStats, JsonLoaderError, JsonLoader
+       } from "jec-commons";
 import * as fs from "fs";
 
 /*PLACEHOLDER*/}

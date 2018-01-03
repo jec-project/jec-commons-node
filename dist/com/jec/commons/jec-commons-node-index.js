@@ -8,3 +8,5 @@ var WalkPathUtil_1 = require("./node/files/utils/WalkPathUtil");
 exports.WalkPathUtil = WalkPathUtil_1.WalkPathUtil;
 var LocaleManagerBase_1 = require("./node/i18n/LocaleManagerBase");
 exports.LocaleManagerBase = LocaleManagerBase_1.LocaleManagerBase;
+var DefaultJsonLoader_1 = require("./node/lang/DefaultJsonLoader");
+exports.DefaultJsonLoader = DefaultJsonLoader_1.DefaultJsonLoader;
