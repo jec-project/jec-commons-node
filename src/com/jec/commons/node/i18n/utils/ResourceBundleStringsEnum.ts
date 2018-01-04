@@ -15,19 +15,14 @@
 //   limitations under the License.
 
 /**
- * A convenient Enum for working with ResourceBundle strings.
+ * A convenient Enum for working with strings used by
+ * <code>ResourceBundle</code> instances.
  */
 export enum ResourceBundleStringsEnum {
 
   ////////////////////////////////////////////////////////////////////////////
   // Public constants
   ////////////////////////////////////////////////////////////////////////////
-
-  /**
-   * A static reference to the pattern used to yield a literal (<code>%</code>)
-   * character.
-   */
-  PERCENT = "%",
   
   /**
    * A static reference to the dot (<code>.</code>) character.

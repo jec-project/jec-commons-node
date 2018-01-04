@@ -17,6 +17,8 @@ export {FilePropertiesBuilder} from "./node/files/utils/FilePropertiesBuilder";
 export {FileStatsProxy} from "./node/files/utils/FileStatsProxy";
 export {WalkPathUtil} from "./node/files/utils/WalkPathUtil";
 //--> com/jec/commons/node/i18n/utils
+export {MessageFormatter} from "./node/i18n//utils/MessageFormatter";
+export {MessageFormatterStringsEnum} from "./node/i18n//utils/MessageFormatterStringsEnum";
 export {ResourceBundle} from "./node/i18n//utils/ResourceBundle";
 export {ResourceBundleStringsEnum} from "./node/i18n//utils/ResourceBundleStringsEnum";
 //--> com/jec/commons/node/i18n

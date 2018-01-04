@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const DefaultJsonLoader_1 = require("../../lang/DefaultJsonLoader");
-const sprintf_js_1 = require("sprintf-js");
 const ResourceBundleStringsEnum_1 = require("./ResourceBundleStringsEnum");
 class ResourceBundle {
     constructor() {
@@ -46,15 +45,8 @@ class ResourceBundle {
             this._properties = null;
         }
     }
-    getString(key, ...replace) {
-        let message = this.getKeyProperty(key);
-        if (message !== key &&
-            message.indexOf(ResourceBundleStringsEnum_1.ResourceBundleStringsEnum.PERCENT) !== -1 &&
-            replace &&
-            replace.length > 0) {
-            message = sprintf_js_1.vsprintf(message, replace);
-        }
-        return message;
+    getString(key) {
+        return this.getKeyProperty(key);
     }
 }
 exports.ResourceBundle = ResourceBundle;

@@ -14,11 +14,19 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-/*!
- * This module constains utilities used by the ResourceBundleStringsEnumTest
- *  test suite.
+/**
+ * A convenient Enum for working with strings used by
+ * <code>MessageFormatter</code> instances.
  */
+export enum MessageFormatterStringsEnum {
 
-// Utilities:
-export const DOT:string = ".";
-export const JSON:string = ".json";
+  ////////////////////////////////////////////////////////////////////////////
+  // Public constants
+  ////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * A static reference to the pattern used to yield a literal (<code>%</code>)
+   * character.
+   */
+  PERCENT = "%"
+}

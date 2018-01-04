@@ -18,6 +18,7 @@ import {LocaleManager} from "./LocaleManager";
 import {LocaleParser} from "./LocaleParser";
 import {Locale} from "jec-commons";
 import {ResourceBundle} from "./utils/ResourceBundle";
+import {MessageFormatter} from "./utils/MessageFormatter";
 
 /**
  * The <code>LocaleManagerBase</code> class is the default implementation of the
@@ -32,7 +33,9 @@ export class LocaleManagerBase implements LocaleManager {
   /**
    * Creates a new <code>LocaleManagerBase</code> instance.
    */
-  constructor() {}
+  constructor() {
+    this.initObj();
+  }
 
   //////////////////////////////////////////////////////////////////////////////
   // Private properties
@@ -59,6 +62,23 @@ export class LocaleManagerBase implements LocaleManager {
    * <code>LocaleManager</code> object.
    */
   private _bundle:ResourceBundle = null;
+
+  /**
+   * The reference to the <code>MessageFormatter</code> instance used by this
+   * <code>LocaleManager</code> object.
+   */
+  private _formatter:MessageFormatter = null;
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Private methods
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * Initializes this object.
+   */
+  private initObj():void {
+    this._formatter = new MessageFormatter();
+  }
 
   //////////////////////////////////////////////////////////////////////////////
   // Public methods
@@ -113,7 +133,12 @@ export class LocaleManagerBase implements LocaleManager {
    */
   public get(key:string, ...replace:string[]):string {
     let result:string = null;
-    if(this._initialized) result = this._bundle.getString(key, ...replace);
+    if(this._initialized) {
+      result = this._bundle.getString(key);
+      if(result !== key) {
+        result = this._formatter.format(result, ...replace);
+      }
+    }
     return result;
   }
 }

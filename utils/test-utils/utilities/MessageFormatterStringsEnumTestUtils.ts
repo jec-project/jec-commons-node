@@ -15,10 +15,9 @@
 //   limitations under the License.
 
 /*!
- * This module constains utilities used by the ResourceBundleStringsEnumTest
+ * This module constains utilities used by the MessageFormatterStringsEnumTest
  *  test suite.
  */
 
 // Utilities:
-export const DOT:string = ".";
-export const JSON:string = ".json";
+export const PERCENT:string = "%";

@@ -2,12 +2,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const LocaleParser_1 = require("./LocaleParser");
 const ResourceBundle_1 = require("./utils/ResourceBundle");
+const MessageFormatter_1 = require("./utils/MessageFormatter");
 class LocaleManagerBase {
     constructor() {
         this._directory = "./public/locales";
         this._initialized = false;
         this._locale = null;
         this._bundle = null;
+        this._formatter = null;
+        this.initObj();
+    }
+    initObj() {
+        this._formatter = new MessageFormatter_1.MessageFormatter();
     }
     init(locale, options) {
         let parser = null;
@@ -41,8 +47,12 @@ class LocaleManagerBase {
     }
     get(key, ...replace) {
         let result = null;
-        if (this._initialized)
-            result = this._bundle.getString(key, ...replace);
+        if (this._initialized) {
+            result = this._bundle.getString(key);
+            if (result !== key) {
+                result = this._formatter.format(result, ...replace);
+            }
+        }
         return result;
     }
 }

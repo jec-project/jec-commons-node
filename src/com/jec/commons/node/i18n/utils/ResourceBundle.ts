@@ -17,7 +17,6 @@
 import * as path from "path";
 import {JsonLoader, Locale} from "jec-commons";
 import {DefaultJsonLoader} from "../../lang/DefaultJsonLoader";
-import {vsprintf} from "sprintf-js";
 import {ResourceBundleStringsEnum} from "./ResourceBundleStringsEnum";
 
 /**
@@ -133,19 +132,9 @@ export class ResourceBundle {
    * object.
    * 
    * @param {Locale} key the key for the desired string.
-   * @param {Array<string>} replace a list of optional strings that will used to
-   *                                to replace percent (<code>%</code>) signs in
-   *                                the desired string.
    * @return {string} the string for the given key.
    */
-  public getString(key:string, ...replace:string[]):string {
-    let message:any = this.getKeyProperty(key);
-    if(message !== key &&
-       message.indexOf(ResourceBundleStringsEnum.PERCENT) !== -1 &&
-       replace &&
-       replace.length > 0) {
-      message = vsprintf(message, replace);
-    }
-    return message;
+  public getString(key:string):string {
+    return this.getKeyProperty(key);
   }
 }

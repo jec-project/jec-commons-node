@@ -14,28 +14,24 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import { TestSuite, Test } from "jec-juta";
+import { TestSuite, Test, TestSorters, BeforeAll, AfterAll } from "jec-juta";
 import { expect } from "chai";
-import { ResourceBundleStringsEnum } from "../../../../../../../src/com/jec/commons/node/i18n/utils/ResourceBundleStringsEnum";
+import { MessageFormatter } from "../../../../../../../src/com/jec/commons/node/i18n/utils/MessageFormatter";
 
-import * as utils from "../../../../../../../utils/test-utils/utilities/ResourceBundleStringsEnumTestUtils";
+import * as utils from "../../../../../../../utils/test-utils/utilities/ResourceBundleTestUtils";
 
 @TestSuite({
-  description: "Test the ResourceBundleStringsEnum class properties"
+  description: "Test the MessageFormatter class methods"
 })
-export class ResourceBundleStringsEnumTest {
+export class MessageFormatterTest {
 
   @Test({
-    description: "DOT should return '.'",
+    description: "should return a string with the correct character substitution"
   })
-  public DOTTest():void {
-    expect(ResourceBundleStringsEnum.DOT).to.equal(utils.DOT);
-  }
-  
-  @Test({
-    description: "JSON should return '.json'",
-  })
-  public JSONTest():void {
-    expect(ResourceBundleStringsEnum.JSON).to.equal(utils.JSON);
+  public formatTest():void {
+    let formatter:MessageFormatter = new MessageFormatter();
+    expect(
+      formatter.format(utils.RAW_STRING, utils.REPLACE_STRING)
+    ).to.equal(utils.RESULT);
   }
 }

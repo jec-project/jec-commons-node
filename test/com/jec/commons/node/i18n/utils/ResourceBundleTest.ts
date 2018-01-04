@@ -76,18 +76,8 @@ export class ResourceBundleTest {
   }
   
   @Test({
-    description: "should return the string for the specified key with the correct character substitution",
-    order: 4
-  })
-  public getValidTransformedStringTest():void {
-    expect(
-      this.bundle.getString(utils.VALID_KEY, utils.REPLACE_STRING)
-    ).to.equal(utils.RESULT);
-  }
-  
-  @Test({
     description: "should return the same string as passed as the key parameter",
-    order: 5
+    order: 4
   })
   public getInvalidStringTest():void {
     expect(

@@ -16,26 +16,19 @@
 
 import { TestSuite, Test } from "jec-juta";
 import { expect } from "chai";
-import { ResourceBundleStringsEnum } from "../../../../../../../src/com/jec/commons/node/i18n/utils/ResourceBundleStringsEnum";
+import { MessageFormatterStringsEnum } from "../../../../../../../src/com/jec/commons/node/i18n/utils/MessageFormatterStringsEnum";
 
-import * as utils from "../../../../../../../utils/test-utils/utilities/ResourceBundleStringsEnumTestUtils";
+import * as utils from "../../../../../../../utils/test-utils/utilities/MessageFormatterStringsEnumTestUtils";
 
 @TestSuite({
-  description: "Test the ResourceBundleStringsEnum class properties"
+  description: "Test the MessageFormatterStringsEnum class properties"
 })
-export class ResourceBundleStringsEnumTest {
+export class MessageFormatterStringsEnumTest {
 
   @Test({
-    description: "DOT should return '.'",
+    description: "PERCENT should return '%'",
   })
-  public DOTTest():void {
-    expect(ResourceBundleStringsEnum.DOT).to.equal(utils.DOT);
-  }
-  
-  @Test({
-    description: "JSON should return '.json'",
-  })
-  public JSONTest():void {
-    expect(ResourceBundleStringsEnum.JSON).to.equal(utils.JSON);
+  public PERCENTTest():void {
+    expect(MessageFormatterStringsEnum.PERCENT).to.equal(utils.PERCENT);
   }
 }
