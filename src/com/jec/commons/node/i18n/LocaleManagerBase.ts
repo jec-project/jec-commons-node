@@ -14,10 +14,10 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import * as i18n from "i18n";
 import {LocaleManager} from "./LocaleManager";
 import {LocaleParser} from "./LocaleParser";
 import {Locale} from "jec-commons";
+import {ResourceBundle} from "./utils/ResourceBundle";
 
 /**
  * The <code>LocaleManagerBase</code> class is the default implementation of the
@@ -54,6 +54,12 @@ export class LocaleManagerBase implements LocaleManager {
    */
   private _locale:Locale = null;
 
+  /**
+   * The reference to the <code>ResourceBundle</code> instance used by this
+   * <code>LocaleManager</code> object.
+   */
+  private _bundle:ResourceBundle = null;
+
   //////////////////////////////////////////////////////////////////////////////
   // Public methods
   //////////////////////////////////////////////////////////////////////////////
@@ -62,25 +68,21 @@ export class LocaleManagerBase implements LocaleManager {
    * @inheritDoc
    */
   public init(locale:string, options?:any):void {
-    let config:any = null;
     let parser:LocaleParser = null;
     if(locale) {
-      config = {
-        locales: [locale],
-        defaultLocale: locale,
-        directory: this._directory,
-        objectNotation: true
-      };
       if(options) {
-        config = Object.assign({}, config, options);
-        this._directory = config.directory;
+        if(options.directory) this._directory = options.directory;
       }
-      i18n.configure(config);
       parser = new LocaleParser();
       this._locale = parser.parse(locale);
+      this._bundle = new ResourceBundle();
+      this._bundle.directory = this._directory;
+      this._bundle.setLocale(this._locale);
       this._initialized = true;
     } else {
+      this._bundle = null;
       this._locale = null;
+      this._directory = "./public/locales";
       this._initialized = false;
     }
   }
@@ -111,7 +113,7 @@ export class LocaleManagerBase implements LocaleManager {
    */
   public get(key:string, ...replace:string[]):string {
     let result:string = null;
-    if(this._initialized) result = i18n.__(key, ...replace);
+    if(this._initialized) result = this._bundle.getString(key, ...replace);
     return result;
   }
 }

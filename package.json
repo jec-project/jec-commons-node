@@ -29,23 +29,24 @@
   "homepage": "https://github.com/pechemann/jec-commons-node#readme",
   "dependencies": {
     "bcp47": "^1.1.2",
-    "i18n": "^0.8.3",
-    "jec-commons": "^1.1.8"
+    "jec-commons": "^1.1.8",
+    "sprintf-js": "^1.1.1"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.41",
+    "@types/sprintf-js": "^1.1.0",
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
-    "jec-juta": "^1.1.7",
-    "jec-tiger": "^1.1.8",
-    "mocha": "^3.3.0",
-    "typedoc": "^0.8.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-mocha-test": "^0.13.2",
     "grunt-ts": "^6.0.0-beta.17",
     "grunt-typedoc": "^0.2.4",
+    "jec-juta": "^1.1.7",
+    "jec-tiger": "^1.1.8",
+    "mocha": "^3.3.0",
+    "typedoc": "^0.8.0",
     "typescript": "^2.6.2"
   }
 }
