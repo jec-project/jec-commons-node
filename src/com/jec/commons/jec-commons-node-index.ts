@@ -19,5 +19,6 @@ export {WalkPathUtil} from "./node/files/utils/WalkPathUtil";
 //--> com/jec/commons/node/i18n
 export {LocaleManager} from "./node/i18n/LocaleManager";
 export {LocaleManagerBase} from "./node/i18n/LocaleManagerBase";
+export {LocaleParser} from "./node/i18n/LocaleParser";
 //--> com/jec/commons/node/lang
 export {DefaultJsonLoader} from "./node/lang/DefaultJsonLoader";

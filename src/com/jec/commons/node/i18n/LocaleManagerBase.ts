@@ -16,6 +16,8 @@
 
 import * as i18n from "i18n";
 import {LocaleManager} from "./LocaleManager";
+import {LocaleParser} from "./LocaleParser";
+import {Locale} from "jec-commons";
 
 /**
  * The <code>LocaleManagerBase</code> class is the default implementation of the
@@ -47,6 +49,11 @@ export class LocaleManagerBase implements LocaleManager {
    */
   private _initialized:boolean = false;
 
+  /**
+   * The current locale for this <code>LocaleManager</code> object.
+   */
+  private _locale:Locale = null;
+
   //////////////////////////////////////////////////////////////////////////////
   // Public methods
   //////////////////////////////////////////////////////////////////////////////
@@ -55,8 +62,10 @@ export class LocaleManagerBase implements LocaleManager {
    * @inheritDoc
    */
   public init(locale:string, options?:any):void {
+    let config:any = null;
+    let parser:LocaleParser = null;
     if(locale) {
-      let config:any = {
+      config = {
         locales: [locale],
         defaultLocale: locale,
         directory: this._directory,
@@ -67,9 +76,13 @@ export class LocaleManagerBase implements LocaleManager {
         this._directory = config.directory;
       }
       i18n.configure(config);
+      parser = new LocaleParser();
+      this._locale = parser.parse(locale);
       this._initialized = true;
+    } else {
+      this._locale = null;
+      this._initialized = false;
     }
-    else this._initialized = false;
   }
 
   /**
@@ -82,8 +95,8 @@ export class LocaleManagerBase implements LocaleManager {
   /**
    * @inheritDoc
    */
-  public getLocale():string {
-    return this._initialized ? i18n.getLocale() : null;
+  public getLocale():Locale {
+    return this._locale;
   }
 
   /**

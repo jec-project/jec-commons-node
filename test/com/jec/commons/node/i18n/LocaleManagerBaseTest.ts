@@ -82,11 +82,11 @@ export class LocaleManagerBaseTest {
   }
 
   @Test({
-    description: "should return the same locale as used for initialization",
+    description: "should return the same locale string as used for initialization",
     order: 5
   })
   public getLocaleTest():void {
-    expect(this.manager.getLocale()).to.equal(utils.LOCALE);
+    expect(this.manager.getLocale().toString()).to.equal(utils.LOCALE);
   }
   
   @Test({

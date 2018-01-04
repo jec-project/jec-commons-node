@@ -14,6 +14,8 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+import {Locale} from "jec-commons";
+
 /**
  * The <code>LocaleManager</code> interface defines the basic set of APIs you
  * must implement to manage the internationalization context for a JEC container
@@ -42,10 +44,10 @@ export interface LocaleManager {
    * Returns the current locale of a JEC container, or <code>null</code> wheter
    * the manager is not initialized.
    *
-   * @return {string} the current locale of a JEC container, or
+   * @return {Locale} the current locale of a JEC container, or
    *                  <code>null</code>.
    */
-  getLocale():string;
+  getLocale():Locale;
 
   /**
    * Returns the directory location for all locales of a JEC container, or
