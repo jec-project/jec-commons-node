@@ -72,7 +72,7 @@ export class ResourceBundle {
    * @return {string} the value that corresponds to the specified key, or the
    *                  <code>key</code> whether the value is not valid.
    */
-  private getKeyProperty(key:string):string {
+  private resolveKey(key:string):string {
     let result:any = this._properties;
     let keys:string[] = key.split(ResourceBundleStringsEnum.DOT);
     let len:number = keys.length - 1;
@@ -135,6 +135,6 @@ export class ResourceBundle {
    * @return {string} the string for the given key.
    */
   public getString(key:string):string {
-    return this.getKeyProperty(key);
+    return this.resolveKey(key);
   }
 }
