@@ -14,9 +14,11 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import {FileProperties, JecStringsEnum, UrlStringsEnum, PathStats} from "jec-commons";
+import {FileProperties, JecStringsEnum, UrlStringsEnum, PathStats
+        } from "jec-commons";
 import {FilePropertiesBuilder} from "./FilePropertiesBuilder";
 import * as fs from "fs";
+import * as path from "path";
 
 /**
  * A helper class that lists all files in a directory.
@@ -39,18 +41,18 @@ export class WalkPathUtil {
   /**
    * Recursively finds all files in the specified directory.
    * 
-   * @param {string} path the path to the directory where to find all files.
+   * @param {string} dirPath the path to the directory where to find all files.
    * @param {Function} process the callback method used to process files found
    *                           in the specified directory.
    * @param {PathStats} pathStats a <code>PathStats</code> instance passed by
    *                              recursion.
    * @return {PathStats} an object that concatenates statistics for all files
-   *                     in the specified path.
+   *                     in the specified directory path.
    */
-  public walkSync(path:string, process:(file:FileProperties)=>void,
+  public walkSync(dirPath:string, process:(file:FileProperties)=>void,
                                          pathStats:PathStats = null):PathStats {
-    let pathStatsResult:PathStats = pathStats || new PathStats(path);
-    let files:string[] = fs.readdirSync(path);
+    let pathStatsResult:PathStats = pathStats || new PathStats(dirPath);
+    let files:string[] = fs.readdirSync(dirPath);
     let stats:fs.Stats = null;
     let currPath:string = null;
     let fileProps:FileProperties = null;
@@ -60,7 +62,7 @@ export class WalkPathUtil {
     let extension:string = UrlStringsEnum.DOT + JecStringsEnum.JS_EXTENSION;
     let builder:FilePropertiesBuilder = new FilePropertiesBuilder();
     files.forEach((file:string)=> {
-      currPath = path + UrlStringsEnum.SLASH + file;
+      currPath = path.join(dirPath, file);
       stats = fs.statSync(currPath);
       if(stats.isDirectory()) {
         pathStatsResult.directoriesNum++;

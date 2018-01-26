@@ -15,7 +15,7 @@ class ResourceBundle {
         let loader = new DefaultJsonLoader_1.DefaultJsonLoader();
         this._properties = loader.loadSync(filepath);
     }
-    getKeyProperty(key) {
+    resolveKey(key) {
         let result = this._properties;
         let keys = key.split(ResourceBundleStringsEnum_1.ResourceBundleStringsEnum.DOT);
         let len = keys.length - 1;
@@ -46,7 +46,7 @@ class ResourceBundle {
         }
     }
     getString(key) {
-        return this.getKeyProperty(key);
+        return this.resolveKey(key);
     }
 }
 exports.ResourceBundle = ResourceBundle;

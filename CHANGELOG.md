@@ -5,6 +5,8 @@
 
 ### Bug Fixes
 
+- **WalkPathUtil**: fixing paths structure by using the `path.join()` method
+
 ### Features
 
 - Dependencies upgrade
