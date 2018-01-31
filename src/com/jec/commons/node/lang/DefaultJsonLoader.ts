@@ -38,7 +38,7 @@ export class DefaultJsonLoader implements JsonLoader {
   /**
    * @inheritDoc
    */
-  public encodingFormat:string = EncodingFormat.UTF8;
+  public encodingFormat:EncodingFormat = EncodingFormat.UTF8;
 
   ////////////////////////////////////////////////////////////////////////////
   // Public methods
