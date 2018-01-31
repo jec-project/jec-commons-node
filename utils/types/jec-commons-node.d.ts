@@ -9,6 +9,7 @@ declare module "jec-commons-node" {
 
 /// <reference types="node" />
 import { FileProperties, FileStats, PathStats, JsonLoaderError, JsonLoader,
+         Locale, EncodingFormat } from "jec-commons";
 import * as fs from "fs";
 
 /*PLACEHOLDER*/}
