@@ -15,8 +15,8 @@
 //   limitations under the License.
 
 import * as path from "path";
-import {JsonLoader, Locale} from "jec-commons";
-import {DefaultJsonLoader} from "../../lang/DefaultJsonLoader";
+import {Locale} from "jec-commons";
+import {GlobalJsonLoader} from "../../lang/GlobalJsonLoader";
 import {ResourceBundleStringsEnum} from "./ResourceBundleStringsEnum";
 
 /**
@@ -60,8 +60,7 @@ export class ResourceBundle {
       this.directory + path.sep +
       this._locale.toString() + ResourceBundleStringsEnum.JSON
     );
-    let loader:JsonLoader = new DefaultJsonLoader();
-    this._properties = loader.loadSync(filepath);
+    this._properties = GlobalJsonLoader.getInstance().loadSync(filepath);
   }
 
   /**

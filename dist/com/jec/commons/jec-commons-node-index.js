@@ -20,3 +20,5 @@ var LocaleParser_1 = require("./node/i18n/LocaleParser");
 exports.LocaleParser = LocaleParser_1.LocaleParser;
 var DefaultJsonLoader_1 = require("./node/lang/DefaultJsonLoader");
 exports.DefaultJsonLoader = DefaultJsonLoader_1.DefaultJsonLoader;
+var GlobalJsonLoader_1 = require("./node/lang/GlobalJsonLoader");
+exports.GlobalJsonLoader = GlobalJsonLoader_1.GlobalJsonLoader;

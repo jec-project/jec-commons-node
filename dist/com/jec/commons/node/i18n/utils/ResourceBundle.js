@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
-const DefaultJsonLoader_1 = require("../../lang/DefaultJsonLoader");
+const GlobalJsonLoader_1 = require("../../lang/GlobalJsonLoader");
 const ResourceBundleStringsEnum_1 = require("./ResourceBundleStringsEnum");
 class ResourceBundle {
     constructor() {
@@ -12,8 +12,7 @@ class ResourceBundle {
     loadResource() {
         let filepath = path.normalize(this.directory + path.sep +
             this._locale.toString() + ResourceBundleStringsEnum_1.ResourceBundleStringsEnum.JSON);
-        let loader = new DefaultJsonLoader_1.DefaultJsonLoader();
-        this._properties = loader.loadSync(filepath);
+        this._properties = GlobalJsonLoader_1.GlobalJsonLoader.getInstance().loadSync(filepath);
     }
     resolveKey(key) {
         let result = this._properties;

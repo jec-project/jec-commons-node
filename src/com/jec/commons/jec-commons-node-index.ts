@@ -1,6 +1,6 @@
 /*!
  * JEC Node.js Commons Node Module
- * Copyright(c) 2017 Pascal ECHEMANN
+ * Copyright(c) 2017-2018 Pascal ECHEMANN
  * Apache 2.0 Licensed
  * This is a part of the JEC Projects: <https://github.com/pechemann/JEC>
  */
@@ -27,3 +27,4 @@ export {LocaleManagerBase} from "./node/i18n/LocaleManagerBase";
 export {LocaleParser} from "./node/i18n/LocaleParser";
 //--> com/jec/commons/node/lang
 export {DefaultJsonLoader} from "./node/lang/DefaultJsonLoader";
+export {GlobalJsonLoader} from "./node/lang/GlobalJsonLoader";
