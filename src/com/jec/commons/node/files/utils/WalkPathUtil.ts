@@ -51,16 +51,16 @@ export class WalkPathUtil {
    */
   public walkSync(dirPath:string, process:(file:FileProperties)=>void,
                                          pathStats:PathStats = null):PathStats {
-    let pathStatsResult:PathStats = pathStats || new PathStats(dirPath);
-    let files:string[] = fs.readdirSync(dirPath);
+    const pathStatsResult:PathStats = pathStats || new PathStats(dirPath);
+    const files:string[] = fs.readdirSync(dirPath);
+    const extension:string = UrlStringsEnum.DOT + JecStringsEnum.JS_EXTENSION;
+    const builder:FilePropertiesBuilder = new FilePropertiesBuilder();
     let stats:fs.Stats = null;
     let currPath:string = null;
     let fileProps:FileProperties = null;
     let extPos:number = -1;
     let filelength:number = -1;
     let rawFile:string = null;
-    let extension:string = UrlStringsEnum.DOT + JecStringsEnum.JS_EXTENSION;
-    let builder:FilePropertiesBuilder = new FilePropertiesBuilder();
     files.forEach((file:string)=> {
       currPath = path.join(dirPath, file);
       stats = fs.statSync(currPath);

@@ -48,13 +48,14 @@ export class FilePropertiesBuilder {
    */
   public build(file:string, path:string, stats:FileStats):FileProperties {
     let fileProps:FileProperties = new BasicFileProperties();
-    let filelength:number = file.length;
-    let extPos:number = filelength - 3;
+    const filelength:number = file.length;
+    const extPos:number = filelength - 3;
+    let rawFile:string = null;
     fileProps.name = file.substr(0, extPos);
     fileProps.path = path.substr(0, path.length - filelength);
     fileProps.extension = JecStringsEnum.JS_EXTENSION;
     fileProps.stats = stats;
-    let rawFile:string = fs.readFileSync(path).toString();
+    rawFile = fs.readFileSync(path).toString();
     fileProps.content = rawFile;
     fileProps.decorators = DecoratorParser.findDecorators(rawFile);
     return fileProps;

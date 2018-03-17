@@ -6,13 +6,14 @@ class FilePropertiesBuilder {
     constructor() { }
     build(file, path, stats) {
         let fileProps = new jec_commons_1.BasicFileProperties();
-        let filelength = file.length;
-        let extPos = filelength - 3;
+        const filelength = file.length;
+        const extPos = filelength - 3;
+        let rawFile = null;
         fileProps.name = file.substr(0, extPos);
         fileProps.path = path.substr(0, path.length - filelength);
         fileProps.extension = jec_commons_1.JecStringsEnum.JS_EXTENSION;
         fileProps.stats = stats;
-        let rawFile = fs.readFileSync(path).toString();
+        rawFile = fs.readFileSync(path).toString();
         fileProps.content = rawFile;
         fileProps.decorators = jec_commons_1.DecoratorParser.findDecorators(rawFile);
         return fileProps;

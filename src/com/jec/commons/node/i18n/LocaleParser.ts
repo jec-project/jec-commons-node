@@ -49,8 +49,8 @@ export class LocaleParser {
    *                  data.
    */
   public parse(locale:string):Locale {
-    let langtag:any = bcp47.parse(locale).langtag;
-    let builder:LocaleBuilder = new LocaleBuilder();
+    const langtag:any = bcp47.parse(locale).langtag;
+    const builder:LocaleBuilder = new LocaleBuilder();
     let result:Locale = builder.setLanguage(langtag.language.language)
                                .setScript(langtag.script)
                                .setRegion(langtag.region)

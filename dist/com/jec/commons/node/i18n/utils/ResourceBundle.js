@@ -10,14 +10,14 @@ class ResourceBundle {
         this.directory = null;
     }
     loadResource() {
-        let filepath = path.normalize(this.directory + path.sep +
+        const filepath = path.normalize(this.directory + path.sep +
             this._locale.toString() + ResourceBundleStringsEnum_1.ResourceBundleStringsEnum.JSON);
         this._properties = GlobalJsonLoader_1.GlobalJsonLoader.getInstance().loadSync(filepath);
     }
     resolveKey(key) {
+        const keys = key.split(ResourceBundleStringsEnum_1.ResourceBundleStringsEnum.DOT);
+        const len = keys.length - 1;
         let result = this._properties;
-        let keys = key.split(ResourceBundleStringsEnum_1.ResourceBundleStringsEnum.DOT);
-        let len = keys.length - 1;
         let i = 0;
         let currKey = null;
         for (; i <= len; ++i) {

@@ -56,7 +56,7 @@ export class ResourceBundle {
    * Loads the resource bundle identified by the current locale.
    */
   private loadResource():void {
-    let filepath = path.normalize(
+    const filepath:string = path.normalize(
       this.directory + path.sep +
       this._locale.toString() + ResourceBundleStringsEnum.JSON
     );
@@ -72,9 +72,9 @@ export class ResourceBundle {
    *                  <code>key</code> whether the value is not valid.
    */
   private resolveKey(key:string):string {
+    const keys:string[] = key.split(ResourceBundleStringsEnum.DOT);
+    const len:number = keys.length - 1;
     let result:any = this._properties;
-    let keys:string[] = key.split(ResourceBundleStringsEnum.DOT);
-    let len:number = keys.length - 1;
     let i:number = 0;
     let currKey:string = null;
     for(; i <= len; ++i) {

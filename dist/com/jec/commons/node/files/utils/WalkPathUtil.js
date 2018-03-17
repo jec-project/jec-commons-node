@@ -7,16 +7,16 @@ const path = require("path");
 class WalkPathUtil {
     constructor() { }
     walkSync(dirPath, process, pathStats = null) {
-        let pathStatsResult = pathStats || new jec_commons_1.PathStats(dirPath);
-        let files = fs.readdirSync(dirPath);
+        const pathStatsResult = pathStats || new jec_commons_1.PathStats(dirPath);
+        const files = fs.readdirSync(dirPath);
+        const extension = jec_commons_1.UrlStringsEnum.DOT + jec_commons_1.JecStringsEnum.JS_EXTENSION;
+        const builder = new FilePropertiesBuilder_1.FilePropertiesBuilder();
         let stats = null;
         let currPath = null;
         let fileProps = null;
         let extPos = -1;
         let filelength = -1;
         let rawFile = null;
-        let extension = jec_commons_1.UrlStringsEnum.DOT + jec_commons_1.JecStringsEnum.JS_EXTENSION;
-        let builder = new FilePropertiesBuilder_1.FilePropertiesBuilder();
         files.forEach((file) => {
             currPath = path.join(dirPath, file);
             stats = fs.statSync(currPath);

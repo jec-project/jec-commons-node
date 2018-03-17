@@ -5,8 +5,8 @@ const bcp47 = require("bcp47");
 class LocaleParser {
     constructor() { }
     parse(locale) {
-        let langtag = bcp47.parse(locale).langtag;
-        let builder = new jec_commons_1.LocaleBuilder();
+        const langtag = bcp47.parse(locale).langtag;
+        const builder = new jec_commons_1.LocaleBuilder();
         let result = builder.setLanguage(langtag.language.language)
             .setScript(langtag.script)
             .setRegion(langtag.region)
