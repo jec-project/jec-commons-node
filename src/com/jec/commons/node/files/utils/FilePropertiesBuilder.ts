@@ -17,6 +17,7 @@
 import {FileProperties, DecoratorParser, BasicFileProperties, JecStringsEnum,
         FileStats} from "jec-commons";
 import * as fs from "fs";
+import * as pathUtils from "path";
 
 /**
  * A utility class that builds <code>FileProperties</code> instances from 
@@ -52,7 +53,9 @@ export class FilePropertiesBuilder {
     const extPos:number = filelength - 3;
     let rawFile:string = null;
     fileProps.name = file.substr(0, extPos);
-    fileProps.path = path.substr(0, path.length - filelength);
+    fileProps.path = pathUtils.normalize(
+      path.substr(0, path.length - filelength)
+    );
     fileProps.extension = JecStringsEnum.JS_EXTENSION;
     fileProps.stats = stats;
     rawFile = fs.readFileSync(path).toString();

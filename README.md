@@ -55,7 +55,7 @@ The documentation generator is [TypeDoc](http://typedoc.org/)
 
 ## Update Release Notes
 
-**Current stable release:** [1.0.7](CHANGELOG.md#jec-commons-node-1.0.7)
+**Current stable release:** [1.0.8](CHANGELOG.md#jec-commons-node-1.0.8)
  
 For a complete listing of release notes for all JEC Node.js Commons update releases, see the [CHANGELOG](CHANGELOG.md) file. 
 

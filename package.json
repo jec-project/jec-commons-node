@@ -1,6 +1,6 @@
 {
   "name": "jec-commons-node",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "JEC Commons for Node.js - Provides developers reusable components used by JEC implementations built over Node.js.",
   "main": "dist/com/jec/commons/jec-commons-node-index",
   "types": "types/jec-commons-node.d.ts",
@@ -29,7 +29,7 @@
   "homepage": "https://github.com/pechemann/jec-commons-node#readme",
   "dependencies": {
     "bcp47": "^1.1.2",
-    "jec-commons": "^1.1.8",
+    "jec-commons": "^1.1.9",
     "sprintf-js": "^1.1.1"
   },
   "devDependencies": {

@@ -1,11 +1,18 @@
 # JEC Node.js Commons Project: Update Release Notes
 
+<a name="jec-commons-node-1.0.8"></a>
+## **1.0.8** (2018-04-07)
+
+### Bug Fixes
+
+- **WalkPathUtil**: fixing paths structure by using the `path.join()` method
+
 <a name="jec-commons-node-1.0.7"></a>
 ## **1.0.7** (2017-12-26)
 
 ### Bug Fixes
 
-- **WalkPathUtil**: fixing paths structure by using the `path.join()` method
+- **FilePropertiesBuilder**: fixing paths structure by using the `path.normalize()` method
 
 ### Features
 
