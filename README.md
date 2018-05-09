@@ -49,7 +49,7 @@ $ grunt doc
 ```
 
 Documentation will be generated in the `docs/api-reference` repository.
-The online version of the  API reference documentation will be available soon at the JEC Website.
+The online version of the API reference documentation is available at: <http://jecproject.org/docs/jec-commons-node/api/>
 
 The documentation generator is [TypeDoc](http://typedoc.org/)
 

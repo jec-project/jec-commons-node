@@ -111,7 +111,10 @@ module.exports = function(grunt) {
         out: "docs/api-reference",
         readme: "README.md",
         name: "JEC Node.js Commons Project",
-        exclude: "**/*Test*.ts"
+        includes: "utils/doc-includes",
+        excludeExternals: true,
+        excludePrivate: true,
+        mode: "file"
       }
     }
   });
