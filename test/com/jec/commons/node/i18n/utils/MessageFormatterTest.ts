@@ -14,24 +14,22 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import { TestSuite, Test, TestSorters, BeforeAll, AfterAll } from "jec-juta";
 import { expect } from "chai";
+
+// Class to test:
 import { MessageFormatter } from "../../../../../../../src/com/jec/commons/node/i18n/utils/MessageFormatter";
 
+// Utilities:
 import * as utils from "../../../../../../../utils/test-utils/utilities/ResourceBundleTestUtils";
 
-@TestSuite({
-  description: "Test the MessageFormatter class methods"
-})
-export class MessageFormatterTest {
+// Test:
+describe("Test the MessageFormatter class methods", ()=> {
 
-  @Test({
-    description: "should return a string with the correct character substitution"
-  })
-  public formatTest():void {
-    let formatter:MessageFormatter = new MessageFormatter();
+  it("should return a string with the correct character substitution", ()=> {
+    const formatter:MessageFormatter = new MessageFormatter();
     expect(
       formatter.format(utils.RAW_STRING, utils.REPLACE_STRING)
     ).to.equal(utils.RESULT);
-  }
-}
+  });
+
+});

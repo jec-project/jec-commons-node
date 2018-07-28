@@ -1,5 +1,16 @@
 # JEC Node.js Commons Project: Update Release Notes
 
+<a name="jec-commons-node-1.0.9"></a>
+## **1.0.9** (2018-07-28)
+
+### Bug Fixes
+
+### Features
+
+- Updating all dependencies
+- Test cases improvements
+- Removing JUTA as testing engine to prevent circular references: Tiger has a reference to this module
+
 <a name="jec-commons-node-1.0.8"></a>
 ## **1.0.8** (2018-04-07)
 

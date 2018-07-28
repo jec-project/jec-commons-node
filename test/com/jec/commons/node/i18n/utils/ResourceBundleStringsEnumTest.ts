@@ -14,28 +14,22 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import { TestSuite, Test } from "jec-juta";
 import { expect } from "chai";
+
+// Class to test:
 import { ResourceBundleStringsEnum } from "../../../../../../../src/com/jec/commons/node/i18n/utils/ResourceBundleStringsEnum";
 
+// Utilities:
 import * as utils from "../../../../../../../utils/test-utils/utilities/ResourceBundleStringsEnumTestUtils";
 
-@TestSuite({
-  description: "Test the ResourceBundleStringsEnum class properties"
-})
-export class ResourceBundleStringsEnumTest {
+// Test:
+describe("Test the ResourceBundleStringsEnum class properties", ()=>{
 
-  @Test({
-    description: "DOT should return '.'",
-  })
-  public DOTTest():void {
+  it("DOT should return '.'", ()=>{
     expect(ResourceBundleStringsEnum.DOT).to.equal(utils.DOT);
-  }
+  });
   
-  @Test({
-    description: "JSON should return '.json'",
-  })
-  public JSONTest():void {
+  it("JSON should return '.json'", ()=>{
     expect(ResourceBundleStringsEnum.JSON).to.equal(utils.JSON);
-  }
-}
+  });
+});

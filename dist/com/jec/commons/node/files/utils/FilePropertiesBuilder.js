@@ -5,11 +5,6 @@ const fs = require("fs");
 const pathUtils = require("path");
 class FilePropertiesBuilder {
     constructor() { }
-    sanitizeFilePath(path) {
-        let result = pathUtils.normalize(path);
-        result = result.replace("\\\\", "\\");
-        return result;
-    }
     build(file, path, stats) {
         let fileProps = new jec_commons_1.BasicFileProperties();
         const filelength = file.length;

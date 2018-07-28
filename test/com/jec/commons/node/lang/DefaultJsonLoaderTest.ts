@@ -14,60 +14,44 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import { TestSuite, Test, TestSorters, BeforeAll, AfterAll, Async } from "jec-juta";
 import { expect, assert } from "chai";
 import { JsonLoader, JsonLoaderError } from "jec-commons";
+
+// Class to test:
 import { DefaultJsonLoader } from "../../../../../../src/com/jec/commons/node/lang/DefaultJsonLoader";
 
 // Utilities:
 import * as utils from "../../../../../../utils/test-utils/utilities/JsonLoaderTestUtils";
 
-@TestSuite({
-  description: "Test the DefaultJsonLoader class methods",
-  testOrder: TestSorters.ORDER_ASCENDING
-})
-export class DefaultJsonLoaderTest {
+// Test:
+describe("Test the DefaultJsonLoader class methods", ()=> {
 
-  private loader:JsonLoader = null;
+  let loader:JsonLoader = null;
 
-  @BeforeAll()
-  public initTest():void {
-    this.loader = new DefaultJsonLoader();
-  }
+  before(()=> {
+    loader = new DefaultJsonLoader();
+  });
 
-  @AfterAll()
-  public resetTest():void {
-    this.loader = null;
-  }
-
-  @Test({
-    description: "should throw an error when path is not valid",
-    order: 0
-  })
-  public loadSyncInvalidPathTest():void {
-    let loadInvalidFilePath:Function = function():void {
-      this.loader.loadSync(utils.INVALID_FILE_PATH);
+  after(()=> {
+    loader = null;
+  });
+  
+  it("should throw an error when path is not valid", ()=> {
+    const loadInvalidFilePath:Function = function():void {
+      loader.loadSync(utils.INVALID_FILE_PATH);
     };
     assert.throws(loadInvalidFilePath.bind(this), Error);
-  }
+  });
 
-  @Test({
-    description: "should throw an error when JSON file is not valid",
-    order: 1
-  })
-  public loadSyncInvalidFileTest():void {
-    let loadInvalidFile:Function = function():void {
-      this.loader.loadSync(utils.INVALID_FILE);
+  it("should throw an error when JSON file is not valid", ()=> {
+    const loadInvalidFile:Function = function():void {
+      loader.loadSync(utils.INVALID_FILE);
     };
     assert.throws(loadInvalidFile.bind(this), Error);
-  }
+  });
 
-  @Test({
-    description: "should throw an error when path is not valid",
-    order: 2
-  })
-  public loadAsyncInvalidPathTest(@Async done:Function):void {
-    this.loader.load(utils.INVALID_FILE_PATH,
+  it("should throw an error when path is not valid", (done:Function)=> {
+    loader.load(utils.INVALID_FILE_PATH,
       (data:any) => {
         assert.fail("ok", "ko", "Exception not thrown");
       },
@@ -76,14 +60,10 @@ export class DefaultJsonLoaderTest {
         done();
       }
     );
-  }
-
-  @Test({
-    description: "should throw an error when JSON file is not valid",
-    order: 3
-  })
-  public loadAsyncInvalidFileTest(@Async done:Function):void {
-    this.loader.load(utils.INVALID_FILE,
+  });
+ 
+  it("should throw an error when JSON file is not valid", (done:Function)=> {
+    loader.load(utils.INVALID_FILE,
       (data:any) => {
         assert.fail("ok", "ko", "Exception not thrown");
       },
@@ -92,23 +72,15 @@ export class DefaultJsonLoaderTest {
         done();
       }
     );
-  }
+  });
 
-  @Test({
-    description: "should return a valid JavaScript Object",
-    order: 4
-  })
-  public loadFileTest():void {
-    let result:any = this.loader.loadSync(utils.VALID_FILE);
+  it("should return a valid JavaScript Object", ()=> {
+    const result:any = loader.loadSync(utils.VALID_FILE);
     expect(result).that.is.an("object");
-  }
+  });
 
-  @Test({
-    description: "should return a JavaScript Object with expected values",
-    order: 5
-  })
-  public loadFileValidValuesTest():void {
-    let result:any = this.loader.loadSync(utils.VALID_FILE);
+  it("should return a JavaScript Object with expected values", ()=> {
+    const result:any = loader.loadSync(utils.VALID_FILE);
     expect(result).to.have.property(utils.J_STRING, utils.STRING);
     expect(result).to.have.property(utils.J_NUMBER, utils.NUMBER);
     expect(result).to.have.property(utils.J_OBJECT)
@@ -117,14 +89,10 @@ export class DefaultJsonLoaderTest {
                   .that.is.an("array").that.deep.equals(utils.ARRAY);
     expect(result).to.have.property(utils.J_BOOLEAN, utils.BOOLEAN);
     expect(result).to.have.property(utils.J_NULL, null);
-  }
+  });
 
-  @Test({
-    description: "should return a valid JavaScript Object",
-    order: 6
-  })
-  public loadAsyncTest(@Async done:Function):void {
-    this.loader.load(utils.VALID_FILE,
+  it("should return a valid JavaScript Object", (done:Function)=> {
+    loader.load(utils.VALID_FILE,
       (data:any) => {
         expect(data).that.is.an("object");
         done();
@@ -133,14 +101,10 @@ export class DefaultJsonLoaderTest {
         assert.fail("ok", "ko", "Exception not thrown");
       }
     );
-  }
+  });
 
-  @Test({
-    description: "should return a valid JavaScript Object with expected values",
-    order: 7
-  })
-  public loadAsyncValidValuesTest(@Async done:Function):void {
-    this.loader.load(utils.VALID_FILE,
+  it("should return a valid JavaScript Object with expected values", (done:Function)=> {
+    loader.load(utils.VALID_FILE,
       (data:any) => {
         expect(data).to.have.property(utils.J_STRING, utils.STRING);
         expect(data).to.have.property(utils.J_NUMBER, utils.NUMBER);
@@ -156,5 +120,5 @@ export class DefaultJsonLoaderTest {
         assert.fail("ok", "ko", "Exception not thrown");
       }
     );
-  }
-}
+  });
+});

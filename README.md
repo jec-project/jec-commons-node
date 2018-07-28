@@ -1,5 +1,9 @@
 # JEC Node.js Commons Project
 
+[![JEC version](https://img.shields.io/badge/JEC-1.0-%23ba00ff.svg)](http://jecproject.org)
+[![npm version](https://badge.fury.io/js/jec-commons-node.svg)](https://www.npmjs.com/package/jec-commons-node)
+[![Apache 2.0](https://img.shields.io/hexpm/l/plug.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
 JEC Node.js Commons is a [JavaScript Enterprise Container][jec-url] project focused on all aspects of reusable components that are used by JEC implementations built over [Node.js](https://nodejs.org/).
 
 [![][jec-logo]][jec-url]
@@ -55,7 +59,7 @@ The documentation generator is [TypeDoc](http://typedoc.org/)
 
 ## Update Release Notes
 
-**Current stable release:** [1.0.8](CHANGELOG.md#jec-commons-node-1.0.8)
+**Current stable release:** [1.0.9](CHANGELOG.md#jec-commons-node-1.0.9)
  
 For a complete listing of release notes for all JEC Node.js Commons update releases, see the [CHANGELOG](CHANGELOG.md) file. 
 

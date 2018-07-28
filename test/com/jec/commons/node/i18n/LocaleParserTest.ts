@@ -14,46 +14,38 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import { TestSuite, Test, BeforeAll, AfterAll } from "jec-juta";
 import { expect } from "chai";
-import { LocaleParser } from "../../../../../../src/com/jec/commons/node/i18n/LocaleParser";
 import { Locale } from "jec-commons";
 
+// Class to test:
+import { LocaleParser } from "../../../../../../src/com/jec/commons/node/i18n/LocaleParser";
+
+// Utilities:
 import * as utils from "../../../../../../utils/test-utils/utilities/LocaleParserTestUtils";
 
-@TestSuite({
-  description: "Test the LocaleParserTest class methods"
-})
-export class LocaleParserTest {
-  
-  private parser:LocaleParser = null;
+// Test:
+describe("Test the LocaleParserTest class methods", ()=> {
 
-  @BeforeAll()
-  public initTest():void {
-    this.parser = new LocaleParser();
-  }
+  let parser:LocaleParser = null;
 
-  @AfterAll()
-  public resetTest():void {
-    this.parser = null;
-  }
+  before(()=> {
+    parser = new LocaleParser();
+  });
 
-  @Test({
-    description: "should return a locale based upon the language and the region"
-  })
-  public parseBasicTest():void {
-    let locale:Locale = this.parser.parse(utils.EN_EN);
+  after(()=> {
+    parser = null;
+  });
+
+  it("should return a locale based upon the language and the region", ()=> {
+    const locale:Locale = parser.parse(utils.EN_EN);
     expect(locale.getLanguage()).to.equal(utils.EN_EN_LANGUAGE);
     expect(locale.getRegion()).to.equal(utils.EN_EN_REGION);
-  }
+  });
   
-  @Test({
-    description: "should return a locale based upon the language, the script and the region"
-  })
-  public parseComplexTest():void {
-    let locale:Locale = this.parser.parse(utils.CMN_HANT_TW);
+  it("should return a locale based upon the language, the script and the region" ,()=> {
+    const locale:Locale = parser.parse(utils.CMN_HANT_TW);
     expect(locale.getLanguage()).to.equal(utils.CMN_HANT_TW_LANGUAGE);
     expect(locale.getScript()).to.equal(utils.CMN_HANT_TW_SCRIPT);
     expect(locale.getRegion()).to.equal(utils.CMN_HANT_TW_REGION);
-  }
-}
+  });
+});

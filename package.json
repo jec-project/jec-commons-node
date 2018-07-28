@@ -1,11 +1,11 @@
 {
   "name": "jec-commons-node",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "JEC Commons for Node.js - Provides developers reusable components used by JEC implementations built over Node.js.",
   "main": "dist/com/jec/commons/jec-commons-node-index",
   "types": "types/jec-commons-node.d.ts",
   "scripts": {
-    "test": "mocha juta/tiger/run-unit-tests"
+    "test": "mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -29,24 +29,23 @@
   "homepage": "https://github.com/jec-project/jec-commons-node#readme",
   "dependencies": {
     "bcp47": "^1.1.2",
-    "jec-commons": "^1.1.9",
+    "jec-commons": "^1.2.0",
     "sprintf-js": "^1.1.1"
   },
   "devDependencies": {
-    "@types/mocha": "^2.2.41",
     "@types/sprintf-js": "^1.1.0",
-    "chai": "^3.5.0",
-    "chai-spies": "^0.7.1",
-    "grunt": "^1.0.1",
+    "@types/mocha": "^5.2.5",
+    "@types/uuid": "^3.4.3",
+    "chai": "^4.1.2",
+    "sinon": "^6.1.4",
+    "grunt": "1.0.3",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-mocha-test": "^0.13.2",
-    "grunt-ts": "^6.0.0-beta.16",
+    "grunt-mocha-test": "^0.13.3",
+    "grunt-ts": "^6.0.0-beta.21",
     "grunt-typedoc": "^0.2.4",
-    "jec-juta": "^1.1.7",
-    "jec-tiger": "^1.1.8",
-    "mocha": "^3.3.0",
-    "typedoc": "^0.8.0",
-    "typescript": "^2.6.2"
+    "mocha": "^5.2.0",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.9.2"
   }
 }

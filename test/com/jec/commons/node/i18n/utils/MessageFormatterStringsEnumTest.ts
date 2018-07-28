@@ -14,21 +14,18 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import { TestSuite, Test } from "jec-juta";
 import { expect } from "chai";
+
+// Class to test:
 import { MessageFormatterStringsEnum } from "../../../../../../../src/com/jec/commons/node/i18n/utils/MessageFormatterStringsEnum";
 
+// Utilities:
 import * as utils from "../../../../../../../utils/test-utils/utilities/MessageFormatterStringsEnumTestUtils";
 
-@TestSuite({
-  description: "Test the MessageFormatterStringsEnum class properties"
-})
-export class MessageFormatterStringsEnumTest {
+// Test:
+describe("Test the MessageFormatterStringsEnum class properties", ()=> {
 
-  @Test({
-    description: "PERCENT should return '%'",
-  })
-  public PERCENTTest():void {
+  it("PERCENT should return '%'", ()=> {
     expect(MessageFormatterStringsEnum.PERCENT).to.equal(utils.PERCENT);
-  }
-}
+  });
+});

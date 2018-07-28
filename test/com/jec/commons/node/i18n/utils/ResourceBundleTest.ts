@@ -14,74 +14,54 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-import { TestSuite, Test, TestSorters, BeforeAll, AfterAll } from "jec-juta";
 import { expect } from "chai";
 import { JsonLoaderError } from "jec-commons";
+
+// Class to test:
 import { ResourceBundle } from "../../../../../../../src/com/jec/commons/node/i18n/utils/ResourceBundle";
 
+// Utilities:
 import * as utils from "../../../../../../../utils/test-utils/utilities/ResourceBundleTestUtils";
 
-@TestSuite({
-  description: "Test the ResourceBundle class methods",
-  testOrder: TestSorters.ORDER_ASCENDING
-})
-export class ResourceBundleTest {
+// Test:
+describe("Test the ResourceBundle class methods", ()=>{
   
-  private bundle:ResourceBundle = null;
+  let bundle:ResourceBundle = null;
 
-  @BeforeAll()
-  public initTest():void {
-    this.bundle = new ResourceBundle();
-  }
+  before(()=>{
+    bundle = new ResourceBundle();
+  });
 
-  @AfterAll()
-  public resetTest():void {
-    this.bundle = null;
-  }
+  after(()=>{
+    bundle = null;
+  });
 
-  @Test({
-    description: "should throw a 'JsonLoaderError' exception when the 'directory' property is 'null'",
-    order: 0
-  })
-  public directoryNullTest():void {
-    let invalidLocalePath:Function = function():void {
-      this.bundle.setLocale(utils.EN_US_LOCALE);
+  it("should throw a 'JsonLoaderError' exception when the 'directory' property is 'null'", ()=>{
+    const invalidLocalePath:Function = function():void {
+      bundle.setLocale(utils.EN_US_LOCALE);
     };
     expect(invalidLocalePath.bind(this)).to.throw(JsonLoaderError);
-  }
+  });
 
-  @Test({
-    description: "should load a resource bundle from the specified directory",
-    order: 1
-  })
-  public setLocaleTest():void {
-    this.bundle.directory = utils.DIRECTORY;
-    expect(this.bundle.setLocale(utils.EN_US_LOCALE)).to.be.OK;
-  }
+  it("should load a resource bundle from the specified directory", ()=>{
+    bundle.directory = utils.DIRECTORY;
+    expect(bundle.setLocale(utils.EN_US_LOCALE)).to.be.undefined;
+  });
 
-  @Test({
-    description: "should return the 'Locale' object set by the 'setLocale()' property",
-    order: 2
-  })
-  public getLocaleTest():void {
-    expect(this.bundle.getLocale()).to.equal(utils.EN_US_LOCALE);
-  }
+  it("should return the 'Locale' object set by the 'setLocale()' property", ()=>{
+    expect(bundle.getLocale()).to.equal(utils.EN_US_LOCALE);
+  });
 
-  @Test({
-    description: "should return the string for the specified key",
-    order: 3
-  })
-  public getValidStringTest():void {
-    expect(this.bundle.getString(utils.VALID_KEY)).to.equal(utils.RAW_STRING);
-  }
+  it("should return the string for the specified key", ()=>{
+    expect(bundle.getString(utils.VALID_KEY)).to.equal(utils.RAW_STRING);
+  });
   
-  @Test({
-    description: "should return the same string as passed as the key parameter",
-    order: 4
-  })
-  public getInvalidStringTest():void {
+  it("should return the same string as passed as the key parameter", ()=>{
     expect(
-      this.bundle.getString(utils.INVALID_KEY)
+      bundle.getString(utils.INVALID_KEY)
     ).to.equal(utils.INVALID_KEY);
-  }
-}
+  });
+});
+
+
+  

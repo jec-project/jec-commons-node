@@ -14,6 +14,8 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
+import * as pathUtils from "path";
+
 /*!
  * This module constains utilities used by the FilePropertiesBuilderTest test
  * suite.
@@ -25,7 +27,7 @@ export const FILE_PATH:string = "./utils/test-utils/classes/SampleFile.js";
 export const DECORATOR_NAME:string = "SampleDecorator";
 export const DECORATOR_CLASS_PATH:string = "./SampleDecorator";
 export const DECORATOR_VALUE:string = "__decorate([\r\n    SampleDecorator_1.SampleDecorator()\r\n], SampleFile);";
-export const PROPERTIES_PATH:string = "./utils/test-utils/classes/";
+export const PROPERTIES_PATH:string = pathUtils.normalize("./utils/test-utils/classes/");
 export const PROPERTIES_NAME:string = "SampleFile";
 /*export const FILE:string =
 `"use strict";
