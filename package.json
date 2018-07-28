@@ -35,7 +35,6 @@
   "devDependencies": {
     "@types/sprintf-js": "^1.1.0",
     "@types/mocha": "^5.2.5",
-    "@types/uuid": "^3.4.3",
     "chai": "^4.1.2",
     "sinon": "^6.1.4",
     "grunt": "1.0.3",
